@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>إرسال تلقائي إلى Webhook</title>
+  <script>
+    window.onload = function() {
+      fetch("https://eo5q27ecbweag8u.m.pipedream.net/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: "تم الدخول إلى الصفحة بنجاح!"
+        })
+      })
+      .then(response => {
+        document.getElementById("msg").innerText = "تم إرسال البيانات بنجاح!";
+      })
+      .catch(error => {
+        document.getElementById("msg").innerText = "حدث خطأ أثناء الإرسال!";
+      });
+    }
+  </script>
+</head>
+<body style="direction:rtl;">
+  <h2>جارٍ إرسال البيانات إلى Webhook...</h2>
+  <div id="msg"></div>
+</body>
+</html>
